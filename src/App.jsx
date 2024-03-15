@@ -7,6 +7,7 @@ import EditPost from './pages/EditPost'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
+import Payment from './pages/Payment'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path='/dashboard' element={<Dashboard/>} />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/signup' element={<SignUp />} />
+          <Route exact path='/payment' element={<Payment/>} />
         </Routes>
       </BrowserRouter>
     </>
