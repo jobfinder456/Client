@@ -11,6 +11,7 @@ function Form({onSubmit, setJobDetails, jobDetails, isEdit}) {
             <div className='flex flex-col w-[40%] gap-[0.5rem]'>
                 <label htmlFor="companyName">Company Name</label>
                 <input  className='w-[100%] border-[2px] rounded-md px-[1rem] py-[0.5rem] border-zinc-600' 
+                        id='companyName'
                         type="text" 
                         placeholder='Pied Piper'
                         value={jobDetails.company_name}
@@ -20,6 +21,7 @@ function Form({onSubmit, setJobDetails, jobDetails, isEdit}) {
             <div className='flex flex-col w-[40%] gap-[0.5rem]'>
                 <label htmlFor="companyWebsite">Company Website</label>
                 <input className='w-[100%] border-[2px] rounded-md px-[1rem] py-[0.5rem] border-zinc-600' 
+                        id='companyWebsite'
                        type="text" placeholder='https://:abc.com'
                        value={jobDetails.website}
                        onChange={(e) => setJobDetails(prevState => ({ ...prevState, website: e.target.value }))} />
@@ -42,14 +44,14 @@ function Form({onSubmit, setJobDetails, jobDetails, isEdit}) {
                    <div className='w-[65%] flex flex-col gap-[0.5rem]'>
                         <label htmlFor="jobTitle">Job Title</label>
                         <input className='w-[100%] border-[2px] rounded-md px-[1rem] py-[0.5rem] border-zinc-600' 
-                                type="text" placeholder='Full STack SOftware Engineer'
+                                id='jobTitle' type="text" placeholder='Full STack SOftware Engineer'
                                 value={jobDetails.job_title}
                                 onChange={(e) => setJobDetails(prevState => ({ ...prevState, job_title: e.target.value }))} />
                    </div>
 
                    <div className='w-[32%] flex flex-col gap-[0.5rem] '>
-                        <label htmlFor="jobTitle">Commitment</label>
-                        <select name="commitment" id="lang" 
+                        <label htmlFor="commitment">Commitment</label>
+                        <select name="commitment" id="commitment" 
                                 className='w-[100%] border-[2px] rounded-md px-[1rem] py-[0.5rem] border-zinc-600'
                                 value={jobDetails.commitment}
                                 onChange={(e) => setJobDetails(prevState => ({ ...prevState, commitment: e.target.value }))}>
@@ -64,16 +66,16 @@ function Form({onSubmit, setJobDetails, jobDetails, isEdit}) {
             <div className='flex w-[100%] gap-[0.5rem] justify-between'>
 
                 <div className='w-[65%] flex flex-col gap-[0.5rem]'>
-                     <label htmlFor="jobTitle">Primary Location</label>
+                     <label htmlFor="location">Primary Location</label>
                      <input className='w-[100%] border-[2px] rounded-md px-[1rem] py-[0.5rem] border-zinc-600' 
-                            type="text" placeholder='Sillicon Valley'
+                            id='location' type="text" placeholder='Sillicon Valley'
                             value={jobDetails.work_loc}
                             onChange={(e) => setJobDetails(prevState => ({ ...prevState, work_loc: e.target.value }))} />
                 </div>
 
                 <div className='w-[32%] flex flex-col gap-[0.5rem] '>
-                     <label htmlFor="jobTitle">Employees may work remotely</label>
-                     <select name="commitment" id="lang"
+                     <label htmlFor="remote">Employees may work remotely</label>
+                     <select name="remote" id="remote"
                              className='w-[100%] border-[2px] rounded-md px-[1rem] py-[0.5rem] border-zinc-600'
                              value={jobDetails.remote}
                              onChange={(e) => setJobDetails(prevState => ({ ...prevState, remote: e.target.value === 'true' }))}
@@ -86,9 +88,9 @@ function Form({onSubmit, setJobDetails, jobDetails, isEdit}) {
             </div>
 
             <div className='flex flex-col w-[100%] gap-[0.5rem]'>
-                <label htmlFor="companyWebsite">Application URL or Public Email</label>
+                <label htmlFor="url">Application URL or Public Email</label>
                 <input className='w-[100%] border-[2px] rounded-md px-[1rem] py-[0.5rem] border-zinc-600'
-                       type="text" placeholder='jobs@company.com'
+                       id='url' type="text" placeholder='jobs@company.com'
                        value={jobDetails.job_link}
                        onChange={(e) => setJobDetails(prevState => ({ ...prevState, job_link: e.target.value }))} />
             </div>
@@ -110,16 +112,16 @@ function Form({onSubmit, setJobDetails, jobDetails, isEdit}) {
                       <h3 className='text-[1.2rem]'>How can we reach you?</h3>
                       <p>This is just for the Startup Jobs team</p>
                   </div><div className='flex flex-col w-[40%] gap-[0.5rem]'>
-                          <label htmlFor="companyWebsite">Name</label>
+                          <label htmlFor="hrName">Name</label>
                           <input className='w-[100%] border-[2px] rounded-md px-[1rem] py-[0.5rem] border-zinc-600'
-                              type="text"
+                              id='hrName' type="text"
                               placeholder='Richard Horlicks'
                               value={jobDetails.name}
                               onChange={(e) => setJobDetails(prevState => ({ ...prevState, name: e.target.value }))} />
                       </div><div className='flex flex-col w-[40%] gap-[0.5rem]'>
-                          <label htmlFor="companyWebsite">Email</label>
+                          <label htmlFor="hrEmail">Email</label>
                           <input className='w-[100%] border-[2px] rounded-md px-[1rem] py-[0.5rem] border-zinc-600'
-                              type="text"
+                              id='hrEmail' type="text"
                               placeholder='RichardHorlicks@gmail.om'
                               value={jobDetails.email}
                               onChange={(e) => setJobDetails(prevState => ({ ...prevState, email: e.target.value }))} />

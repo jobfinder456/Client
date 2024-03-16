@@ -42,7 +42,10 @@ function Login() {
   return (
     <div className='relative mx-auto mt-[2rem] w-[20rem] p-[1rem] rounded-[8px] text-black flex flex-col justify-center items-center gap-[1rem] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)];'>
 
-        <input type="text" 
+        <label htmlFor="email"></label>
+        <input type="email" 
+                id='email'
+                autoComplete='on'
                 onChange={(e) => {
                     setUserDetails(prevState => ({
                         ...prevState,
@@ -51,7 +54,9 @@ function Login() {
                 }} 
                 placeholder='email' />
 
+        <label htmlFor="password"></label>
         <input type="text" 
+                id='password'
                 onChange={(e) => {
                     setUserDetails(prevState => ({
                         ...prevState,

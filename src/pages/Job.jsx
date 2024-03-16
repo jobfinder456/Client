@@ -37,8 +37,8 @@ function Job() {
 
             <div className='bg-zinc-200 p-[0.5rem] rounded-md'>
 
-                  <label className='text-[0.75rem] leading-tight'> Want to apply interview first ? Drop your mail, we will send the notification as soon as new Job post drops</label>
-                  <input type="text" placeholder='your mail'
+                  <label htmlFor='email' className='text-[0.75rem] leading-tight'> Want to apply interview first ? Drop your mail, we will send the notification as soon as new Job post drops</label>
+                  <input type="text" placeholder='your mail' id='email' autoComplete='off'
                           className='w-[100%] border-[2px] rounded-md px-[1rem] py-[0.25rem] border-zinc-600' 
                   />
 
