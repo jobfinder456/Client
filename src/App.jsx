@@ -8,6 +8,8 @@ import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Payment from './pages/Payment'
+import Success from './pages/Success'
+import Cancel from './pages/Cancel'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/signup' element={<SignUp />} />
           <Route exact path='/payment' element={<Payment/>} />
+          <Route exact path='/success' element={<Success />} />
+          <Route exact path='/cancel' element={<Cancel />} />
         </Routes>
       </BrowserRouter>
     </>

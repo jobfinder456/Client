@@ -1,29 +1,37 @@
 import React, { useState } from 'react'
-import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
+import {loadStripe} from '@stripe/stripe-js';
 
 function Payment() {
-    const [product, setProduct] = useState({
-        name: 'JOB',
-        price: '9900',
-        productBy: 'ABC'
-    })
 
-    const makePayment = async(token) => {
-        try {
-            const response = await axios.post("http://localhost:3000/api/v1/payment", { token , product})
-            console.log(response)
-        } catch (error) {
-            console.log(error)
-        }
+    const makePayment = async() => {
+        const stripe = await loadStripe("pk_test_51OqkPQSJqQm5qUQy5blBCq5rKyWfbXniuqW2ATUMOYyewaBbuV9aNdLLscVqpTGQtDPiPa0UxYhjmKHfRmMGqscS00ZTg5S8Ip")
+
+        const products = [
+            {
+                id: "react",
+                price: "99"
+            },
+            {
+                id: "css",
+                price: "69"
+            }
+        ];
+
+        const response = await axios.post('http://localhost:3000/api/v1/create-checkout-session', { products })
+        console.log(response)
+        //const session = await response.json()
+        const result = stripe.redirectToCheckout({
+            sessionId: response.data.id
+        })
+        console.log(result)
     }
+
   return (
     <div>
         <h1>jkfhkw</h1>
-        <StripeCheckout stripeKey={"pk_test_51OqkPQSJqQm5qUQy5blBCq5rKyWfbXniuqW2ATUMOYyewaBbuV9aNdLLscVqpTGQtDPiPa0UxYhjmKHfRmMGqscS00ZTg5S8Ip"} 
-                        token={makePayment} name='JOB' price={"99"} >
-            <button>Buy now</button>
-        </StripeCheckout>
+        <button onClick={makePayment}>Make payment</button>
+
 
     </div>
   )
