@@ -18,7 +18,7 @@ function Payment() {
             }
         ];
 
-        const response = await axios.post('http://localhost:3000/api/v1/create-checkout-session', { products })
+        const response = await axios.post('http://10.0.0.133:3000//api/v1/create-checkout-session', { products })
         console.log(response)
         //const session = await response.json()
         const result = stripe.redirectToCheckout({

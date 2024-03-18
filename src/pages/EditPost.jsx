@@ -19,7 +19,7 @@ function EditPost() {
             try {
                 const id = window.location.href.split("/")[4]
                 console.log(id)
-                const response = await axios.get(`http://localhost:3000/api/v1/job/${id}`)
+                const response = await axios.get(`http://10.0.0.133:3000//api/v1/job/${id}`)
                 setJobDetails(response.data.result.rows[0])
                 console.log(response)
             } catch (error) {
@@ -33,7 +33,7 @@ function EditPost() {
         try {
             const token = localStorage.getItem("token") || false;
             const id = window.location.href.split("/")[4]
-            const response = await axios.put(`http://localhost:3000/api/v1/update/${id}`, jobDetails, { headers: { "Authorization": `Bearer ${token}` } })
+            const response = await axios.put(`http://10.0.0.133:3000//api/v1/update/${id}`, jobDetails, { headers: { "Authorization": `Bearer ${token}` } })
             console.log(response)
         } catch (error) {
             console.log(error)

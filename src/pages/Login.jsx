@@ -15,7 +15,7 @@ function Login() {
         async function verify(){
             try {
         
-                const response = await axios.get(`http://localhost:3000/api/v1/verifyuser`, { headers: { "Authorization": `Bearer ${token}` } });
+                const response = await axios.get(`http://10.0.0.133:3000//api/v1/verifyuser`, { headers: { "Authorization": `Bearer ${token}` } });
                 console.log(response)
                 navigate('/dashboard')
               } catch (error) {
@@ -30,7 +30,7 @@ function Login() {
     const onSubmit = async() => {
         try {
             console.log(userDetails)
-            const response = await axios.post("http://localhost:3000/api/v1/user/login", userDetails)
+            const response = await axios.post("http://10.0.0.133:3000//api/v1/user/login", userDetails)
             console.log(response)
             localStorage.setItem("token", response.data.token)
             navigate('/dashboard')

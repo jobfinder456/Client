@@ -28,7 +28,7 @@ function Home() {
   useEffect(() => {
     const search = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/list")
+        const response = await axios.get("http://10.0.0.133:3000//api/v1/list")
         setPost(response.data.all.rows)
         console.log(response)
     } catch (error) {
