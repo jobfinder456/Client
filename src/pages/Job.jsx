@@ -8,7 +8,7 @@ function Job() {
     async function get () {
       try {
         const id = window.location.href.split("/")[4]
-        const response = await axios.get(`http://localhost:3000/api/v1/job/${id}`)
+        const response = await axios.get(`http://10.0.0.133:3000//api/v1/job/${id}`)
         setDetails(response.data.result.rows[0])
         console.log(response.data.result.rows[0])
       } catch (error) {
