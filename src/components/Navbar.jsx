@@ -8,6 +8,9 @@ function Navbar() {
             <div className='w-[4rem] h-[4rem] bg-zinc-400 rounded-md'></div>
 
             <div className='flex gap-[1rem]'>
+
+                <a  className='border-[1px] border-zinc-300 rounded-md px-[1rem] py-[0.5rem]'
+                    href="/login">Sign In</a>
                 <a className='border-[1px] border-zinc-300 rounded-md px-[1rem] py-[0.5rem]'
                     href="/pricing">For employers</a>
                 <a className='bg-zinc-300 rounded-md px-[1rem] py-[0.5rem]'

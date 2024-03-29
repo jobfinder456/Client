@@ -8,6 +8,7 @@ function PostJob() {
     company_name: '', //
     website: '', //
     job_title: '', //
+    image: '',
     work_loc: '', //
     remote: true, //
     job_link: '', //
@@ -18,9 +19,32 @@ function PostJob() {
 })
 
 const onSubmit = async() => {
-    console.log(jobDetails)
+  
+  const formData = new FormData();
+    // Append all text fields to formData
+    for (const key in jobDetails) {
+        if (key !== "image") {
+            formData.append(key, jobDetails[key]);
+        }
+    }
+    // Append the file. Ensure 'image' matches your backend expectation
+    if (jobDetails.image) {
+        formData.append("image", jobDetails.image);
+    }
+
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+  }
+
+    console.log(formData)
+
     try {
-        const response = await axios.post("http://localhost:3000/api/v1/insert", jobDetails)
+        const response = await axios.post("http://localhost:3000/api/v1/insert", formData, {
+          headers: {
+              // Inform the server about the data type
+              "Content-Type": "multipart/form-data",
+          },
+      })
         console.log(response)
     } catch (error) {
         console.log(error)

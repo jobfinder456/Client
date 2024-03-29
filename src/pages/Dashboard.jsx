@@ -61,9 +61,9 @@ function Dashboard() {
 
       <button onClick={onSubmit}>Submit</button>*/}
 
-      <h1>Welcome Smith</h1>
+      <h1>Welcome Back</h1>
 
-      {postData.map((post) => (
+      { postData[0] ? postData.map((post) => (
         <div key={post.id} className='flex items-center gap-[1rem] px-[1rem] py-[0.5rem] bg-zinc-100 mt-[1rem]'>
           <div className='w-[4rem] h-[4rem] bg-zinc-400 rounded-md'></div>
           <div>
@@ -80,7 +80,8 @@ function Dashboard() {
             setPostIdToDelete(post.id);
           }} className='bg-red-200 rounded-md text-red-700 p-[0.5rem]'>Delete post</button>
         </div>
-      ))}
+      )) : <p>Please log In</p> }
+
     </div>
   );
 }

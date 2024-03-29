@@ -3,6 +3,10 @@ import axios from "axios"
 
 function Form({onSubmit, setJobDetails, jobDetails, isEdit}) {
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0]; // Get the first file
+        setJobDetails(prevState => ({ ...prevState, image: file }));
+      };
 
   return (
     <>
@@ -27,10 +31,10 @@ function Form({onSubmit, setJobDetails, jobDetails, isEdit}) {
                        onChange={(e) => setJobDetails(prevState => ({ ...prevState, website: e.target.value }))} />
             </div>
 
-            {/*<div className='flex flex-col w-[100%] gap-[0.5rem]'>
+            <div className='flex flex-col w-[100%] gap-[0.5rem]'>
                     <label htmlFor="companyLogo">Logo</label>
-                    <input type="file" name="" id="" />
-            </div>*/}
+                    <input type="file" name="" id=""  onChange={handleFileChange}/>
+            </div>
 
             <hr className='border-[1px] border-zinc-200 w-[100%]' />
 
