@@ -39,16 +39,13 @@ const onSubmit = async() => {
     console.log(formData)
 
     try {
-<<<<<<< HEAD
+
         const response = await axios.post("http://localhost:3000/api/v1/insert", formData, {
           headers: {
               // Inform the server about the data type
               "Content-Type": "multipart/form-data",
           },
       })
-=======
-        const response = await axios.post("http://10.0.0.133:3000//api/v1/insert", jobDetails)
->>>>>>> d3604f20ae5dabd1ffb93b99eba297622b66186e
         console.log(response)
     } catch (error) {
         console.log(error)
