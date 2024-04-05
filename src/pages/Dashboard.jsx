@@ -11,12 +11,15 @@ function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const token = localStorage.getItem("token") || false;
-            const responseVerify = await axios.get(`http://10.0.0.133:3000//api/v1/verifyuser`, { headers: { "Authorization": `Bearer ${token}` } });
+            const token = localStorage.getItem("jf_token") || false;
+            if(!token){
+              return
+            }
+            const responseVerify = await axios.get(`http://localhost:3000/api/v1/verifyuser`, { headers: { "Authorization": `Bearer ${token}` } });
             setEmail(responseVerify.data.email);
             console.log(responseVerify.data.email);
 
-            const responseSubmit = await axios.post("http://10.0.0.133:3000//api/v1/users-list", { email: responseVerify.data.email }, { headers: { "Authorization": `Bearer ${token}` } });
+            const responseSubmit = await axios.post("http://localhost:3000/api/v1/users-list", { email: responseVerify.data.email }, { headers: { "Authorization": `Bearer ${token}` } });
             console.log(responseSubmit);
             setPostData(responseSubmit.data.all);
         } catch (error) {
@@ -31,8 +34,8 @@ function Dashboard() {
   const onDelete = async (id) => {
     console.log(id)
     try {
-      const token = localStorage.getItem("token") || false;
-      const response = await axios.delete(`http://10.0.0.133:3000//api/v1/delete/${id}`, { headers: { "Authorization": `Bearer ${token}` }} );
+      const token = localStorage.getItem("jf_token") || false;
+      const response = await axios.delete(`http://10.0.0.133:3000/api/v1/delete/${id}`, { headers: { "Authorization": `Bearer ${token}` }} );
       console.log(response);
       // After deleting, close the modal and reset postIdToDelete
       setModal(false);

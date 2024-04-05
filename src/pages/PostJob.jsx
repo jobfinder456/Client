@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Form from '../components/Form'
 import axios from 'axios'
+import { useNavigate, Link } from 'react-router-dom'
 
 function PostJob() {
 
+  const [modal, setModal] = useState(false)
   const [jobDetails, setJobDetails] = useState({
     company_name: '', //
     website: '', //
@@ -19,6 +21,12 @@ function PostJob() {
 })
 
 const onSubmit = async() => {
+
+  const token = localStorage.getItem("jf_token") || false
+  if(!token){
+    setModal(true)
+    return
+  }
   
   const formData = new FormData();
     // Append all text fields to formData
@@ -54,7 +62,17 @@ const onSubmit = async() => {
 
 
   return (
-    <div className='w-[42rem] mx-auto my-[2rem] flex flex-col items-start justify-center gap-[1rem] font-thin'>
+    <div className='relative w-[42rem] mx-auto my-[2rem] flex flex-col items-start justify-center gap-[1rem] font-thin'>
+
+          { modal ? <div className='sticky top-[2rem] rounded-[8px] p-[1rem] bg-white w-[90%] h-[10rem] mx-auto'>
+                      
+                        <div>
+                          New here ? <Link className='underline' to={'/signup'}>Signup</Link>
+                        </div>
+                        <div>
+                          Already have an account ? <Link className='underline' to={'/login'}>Login</Link>
+                        </div>
+          </div> : null }
         
             <h1 className='text-[2rem]'>Hire the best. Share your job post with thousands of job seekers.</h1>
 
